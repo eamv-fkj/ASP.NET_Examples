@@ -1,0 +1,18 @@
+﻿@model CityViewModel
+
+@{
+  ViewData["Title"] = "Dropdown-liste med byer";
+}
+
+<h1>Valg af by</h1>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+  <div class="form-group mb-4">
+    <label asp-for="SelectedItemId" class="d-block mb-2">By:</label>
+    <select asp-for="SelectedItemId" asp-items="Model.Cities" class="form-control">
+      <option value="">-- Vælg en by --</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Okay</button>
+</form>
