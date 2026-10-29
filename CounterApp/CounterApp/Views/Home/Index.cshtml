@@ -1,0 +1,21 @@
+@model int
+
+@{
+  ViewData["Title"] = "Tæller";
+}
+
+<div class="container py-5 text-center">
+  <h1>CounterApp</h1>
+
+  <form asp-action="Index" method="post">
+    <input type="hidden" name="number" value="@Model" />
+
+    <label class="form-label fs-1">@Model</label>
+
+    <div class="d-flex gap-2 justify-content-center">
+      <button type="submit" name="command" value="minus" class="btn btn-danger">Minus</button>
+      <button type="submit" name="command" value="reset" class="btn btn-secondary">Reset</button>
+      <button type="submit" name="command" value="plus" class="btn btn-success">Plus</button>
+    </div>
+  </form>
+</div>

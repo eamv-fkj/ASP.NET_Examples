@@ -1,0 +1,16 @@
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Pp]ublish/
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+packages/
+node_modules/
+TestResults/
+# OS filer
+.DS_Store
+Thumbs.db

@@ -1,0 +1,41 @@
+@model string
+
+@{
+  ViewData["Title"] = "Trafiklys";
+}
+
+<div class="container py-5 text-center">
+  <h1>Trafiklys</h1>
+
+  @if (ViewData["Message"] != null) {
+    <div class="alert alert-success mt-3">@ViewData["Message"]</div>
+  }
+
+  <form asp-action="Index" method="post">
+    <input type="hidden" name="color" value="@Model" />
+
+    <div class="mb-4">
+      @switch (Model) {
+        case "Red":
+          <label class="form-label fs-1 text-danger">Rød</label>
+          break;
+        case "Yellow":
+          <label class="form-label fs-1 text-warning">Gul</label>
+          break;
+        case "Green":
+          <label class="form-label fs-1 text-success">Grøn</label>
+          break;
+        default:
+          <label class="form-label fs-1 text-danger">Rød</label>
+          break;
+      }
+    </div>
+
+    <div class="d-flex gap-2 justify-content-center flex-wrap">
+      <button type="submit" name="command" value="Rød" class="btn btn-danger">Rød</button>
+      <button type="submit" name="command" value="Gul" class="btn btn-warning">Gul</button>
+      <button type="submit" name="command" value="Grøn" class="btn btn-success">Grøn</button>
+      <button type="submit" name="command" value="Go" class="btn btn-primary" disabled="@(Model != "Green")">Kør</button>
+    </div>
+  </form>
+</div>
