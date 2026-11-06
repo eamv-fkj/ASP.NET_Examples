@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+*.swp
+.DS_Store
+appsettings.*.local.json
+notes.txt

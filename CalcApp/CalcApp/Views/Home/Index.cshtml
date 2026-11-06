@@ -1,0 +1,18 @@
+@model CalcViewModel
+
+<div>
+  <h1>CalcApp</h1>
+
+  <form asp-action="Index" method="post">
+    <input asp-for="Operand1" class="form-control w-25" />
+    <select asp-for="SelectedOperator" asp-items="Model.OperatorList" class="form-select w-25">
+      <option value="">-- Vælg en operator --</option>
+    </select>
+    <span asp-validation-for="SelectedOperator" class="text-danger"></span><br />
+    <input asp-for="Operand2" class="form-control w-25" />
+    <span asp-validation-for="Operand2" class="text-danger"></span><br />
+    <button type="submit" class="btn btn-primary w-25">=</button>
+    <!--<input asp-for="Result" class="form-control w-25" readonly />-->
+    <output class="form-control w-25">@Model.Result</output>
+  </form>
+</div>
