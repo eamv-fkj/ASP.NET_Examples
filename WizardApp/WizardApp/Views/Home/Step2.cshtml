@@ -1,0 +1,39 @@
+@model EducationViewModel
+
+@{
+  ViewData["Title"] = "Uddannelse og semester";
+}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <p class="text-muted mb-1">Trin 2 af 3</p>
+          <h1 class="h3 mb-4">Uddannelse og semester</h1>
+
+          <form asp-action="Step2" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+              <label asp-for="Education" class="form-label">Uddannelse</label>
+              <input asp-for="Education" class="form-control" />
+              <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+              <label asp-for="Semester" class="form-label">Semester</label>
+              <input asp-for="Semester" class="form-control" />
+              <span asp-validation-for="Semester" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-2">
+              <a asp-action="Index" class="btn btn-secondary">Forrige</a>
+              <button type="submit" class="btn btn-primary">Næste</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

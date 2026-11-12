@@ -1,0 +1,19 @@
+@model Quote
+
+@{
+  string badgeClass = Model.Category switch {
+    "Tech" => "bg-dark",
+    "Life" => "bg-success",
+    _ => "bg-secondary"
+  };
+}
+
+<div class="card mb-3">
+  <div class="card-body">
+    <blockquote class="blockquote mb-2">
+      <p class="mb-0">"@Model.Text"</p>
+      <footer class="blockquote-footer mt-1">@Model.Author</footer>
+    </blockquote>
+    <span class="badge @badgeClass">@Model.Category</span>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- dette er packages for Entity Framework. Design bruges af dotnet-ef -->
+    <!-- og den primære grund til at der står en række ekstra ting omkring -->
+    <!-- denne package, er at den kun skal bruges under udvikling, så den -->
+    <!-- skal ikke indgå i den enedelige applikation - ikke deploys! -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.14">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+
+    <!-- dette er package for Identity -->
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.14" />
+
+    <!-- de følgende to packages skal explicit installeres i nyere versioner end -->
+    <!-- de 9.0.11 versioner som åbenbart default bliver brugt. De har nemlig -->
+    <!-- kendte sikkerhedsproblemer, der giver en warning i denne csprofj fil -->
+    <!-- vi installerer dem derfor i den samme version som du øvrige packages-->
+    <!-- dvs. 10.0.14 -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.14" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
+  </ItemGroup>
+
+</Project>

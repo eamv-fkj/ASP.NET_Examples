@@ -1,0 +1,41 @@
+@model WizardViewModel
+
+@{
+  ViewData["Title"] = "Opsummering";
+}
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <p class="text-muted mb-1">Trin 3 af 3</p>
+          <h1 class="h3 mb-4">Opsummering</h1>
+
+          <dl class="row mb-4">
+            <dt class="col-sm-4">Navn</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">@Model.Email</dd>
+
+            <dt class="col-sm-4">Uddannelse</dt>
+            <dd class="col-sm-8">@Model.Education</dd>
+
+            <dt class="col-sm-4">Semester</dt>
+            <dd class="col-sm-8">@Model.Semester</dd>
+          </dl>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a asp-action="Step2" class="btn btn-secondary">Forrige</a>
+            <button type="button" class="btn btn-secondary" disabled>Næste</button>
+
+            <form asp-action="Reset" method="post" class="ms-auto">
+              <button type="submit" class="btn btn-danger">Start forfra</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

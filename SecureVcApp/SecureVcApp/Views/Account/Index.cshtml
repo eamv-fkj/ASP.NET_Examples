@@ -1,0 +1,60 @@
+@model IEnumerable<AppUser>
+
+@{
+  ViewData["Title"] = "Accounts";
+}
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Accounts</h1>
+    <div class="d-flex gap-2">
+      @if (User.Identity?.IsAuthenticated == true) {
+        <a asp-controller="Order" asp-action="Index" class="btn btn-outline-primary">Mine ordrer</a>
+      } else {
+        <a asp-action="Login" class="btn btn-outline-primary">Log ind</a>
+      }
+      <a asp-action="Register" class="btn btn-primary">Registrer ny account</a>
+    </div>
+  </div>
+
+  @if (TempData["Success"] is string success) {
+    <div class="alert alert-success">@success</div>
+  }
+
+  @if (!Model.Any()) {
+    <p class="text-muted">Ingen accounts fundet.</p>
+  } else {
+    <table class="table table-striped table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Fornavn</th>
+          <th>Efternavn</th>
+          <th>Email</th>
+          <th class="text-end">Kommandoer</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (AppUser user in Model) {
+          <tr>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Email</td>
+            <td class="text-end">
+              <div class="btn-group btn-group-sm" role="group">
+                <a asp-action="Details" asp-route-id="@user.Id"
+                  class="btn btn-outline-secondary">Show details</a>
+                <a asp-action="Edit" asp-route-id="@user.Id"
+                  class="btn btn-outline-primary">Edit</a>
+
+              @if (User.IsInRole("Admin") || User.IsInRole("Owner")) {
+                <a asp-action="Delete" asp-route-id="@user.Id"
+                  class="btn btn-outline-danger">Delete</a>
+              }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

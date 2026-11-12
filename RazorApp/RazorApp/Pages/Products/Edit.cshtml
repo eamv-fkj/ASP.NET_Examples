@@ -1,0 +1,28 @@
+@page "{id:int}"
+@model EditModel
+
+@{
+  ViewData["Title"] = "Rediger produkt";
+}
+
+<div class="container py-4">
+  <h2 class="mb-3">Rediger produkt</h2>
+  <hr />
+
+  <div class="row">
+    <div class="col-md-6">
+      <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+          <label asp-for="Input.Name" class="form-label">Navn</label>
+          <input asp-for="Input.Name" class="form-control" />
+          <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Gem ændringer</button>
+        <a asp-page="Index" class="btn btn-secondary">Fortryd</a>
+      </form>
+    </div>
+  </div>
+</div>

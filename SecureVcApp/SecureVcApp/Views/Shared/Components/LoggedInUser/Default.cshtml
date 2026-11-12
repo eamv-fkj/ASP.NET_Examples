@@ -1,0 +1,11 @@
+@model AppUser?
+
+@if (Model is null) {
+  <span class="text-body-secondary small">Ikke logget ind</span>
+} else {
+  <div class="text-end small lh-sm">
+    <span class="text-body-secondary">Logget ind som</span>
+    <span class="fw-semibold">@Model.FirstName @Model.LastName</span>
+    <span class="d-block text-body-secondary">@Model.Email</span>
+  </div>
+}

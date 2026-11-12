@@ -1,0 +1,11 @@
+@model string
+
+@{
+  ViewData["Title"] = "By valgt";
+}
+
+<h1>By blev valgt</h1>
+
+<p>Byen med id <b>@Model</b> blev valgt</p>
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Tilbage</a>

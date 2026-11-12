@@ -1,0 +1,21 @@
+@model IEnumerable<Quote>
+
+@{
+  ViewData["Title"] = "Citater";
+}
+
+<h1>Citater</h1>
+
+<div class="card bg-light p-3 mb-4">
+  <h2>Dagens citat</h2>
+
+  <vc:daily-quote />
+
+  <div>
+    <a asp-action="Index" class="btn btn-primary">Genindlæs</a>
+  </div>
+</div>
+
+@foreach (Quote quote in Model) {
+  <partial name="_QuoteCard" model="quote" />
+}

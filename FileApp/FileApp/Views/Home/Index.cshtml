@@ -1,0 +1,30 @@
+@{
+  ViewData["Title"] = "Velkommen";
+}
+
+<div>
+  <h1>Velkommen til FileApp</h1>
+</div>
+
+@if (ViewData["Message"] != null) {
+  <div class="alert alert-success">@ViewData["Message"]</div>
+}
+
+@if (ViewData["ImageUrl"] != null) {
+  <div class="mb-3">
+    <img class="img-fluid" src="@ViewData["ImageUrl"]" alt="Uploaded billede" />
+  </div>
+}
+
+@if (ViewData["FileName"] != null) {
+  <div class="mb-3">
+    <a class="btn btn-secondary" asp-action="Download" asp-route-fileName="@ViewData["FileName"]">Download</a>
+  </div>
+}
+
+<form asp-action="Index" method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <input class="form-control w-50" type="file" name="file" />
+  </div>
+  <button class="btn btn-primary" type="submit">Upload</button>
+</form>

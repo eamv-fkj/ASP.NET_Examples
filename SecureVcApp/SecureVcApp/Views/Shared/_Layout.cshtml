@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - SecureVcApp</title>
+  <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+  <header>
+    <div class="container d-flex justify-content-between align-items-center py-3">
+      <a asp-controller="Home" asp-action="Index" class="h4 mb-0 text-decoration-none">SecureVcApp</a>
+      <vc:logged-in-user />
+    </div>
+  </header>
+
+  <div>
+    @RenderBody()
+  </div>
+
+  <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

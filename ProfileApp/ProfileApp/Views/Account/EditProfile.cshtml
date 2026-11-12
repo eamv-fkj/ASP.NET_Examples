@@ -1,0 +1,35 @@
+@model EditProfileViewModel
+
+@{
+  ViewData["Title"] = "Ret profil";
+}
+
+<h1>Ret profil</h1>
+<hr />
+
+<form asp-action="EditProfile" method="post">
+  <div asp-validation-summary="All" class="text-danger"></div>
+
+  <div class="mb-3 w-25">
+    <label for="CurrentPassword" class="control-label">Dit nuværende password</label>
+    <input asp-for="CurrentPassword" class="form-control" />
+    <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+  </div>
+
+  <div class="mb-3 w-25">
+    <label for="NewPassword" class="control-label">Nyt password</label>
+    <input asp-for="NewPassword" class="form-control" />
+    <span asp-validation-for="NewPassword" class="text-danger"></span>
+  </div>
+
+  <div class="mb-3 w-25">
+    <label for="ConfirmPassword" class="control-label">Bekræft nyt password</label>
+    <input asp-for="ConfirmPassword" class="form-control" />
+    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+  </div>
+
+  <input type="hidden" asp-for="Id" />
+
+  <button type="submit" class="btn btn-primary">Gem</button>
+  <a asp-action="Index" class="btn btn-outline-secondary">Annuller</a>
+</form>
